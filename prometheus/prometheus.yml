@@ -32,7 +32,7 @@ scrape_configs:
     scrape_interval: 10s
     honor_labels: true
     static_configs:
-      - targets: ['pushgateway:9091']
+      - targets: ['pushgateway:9091/pushgateway']
 
 
 alerting:
