@@ -137,3 +137,17 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+      
+  nginxexporter:
+    image: nginx/nginx-prometheus-exporter
+    container_name: nginxexporter
+    command:
+      - '-nginx.scrape-uri=https://obs.mobeigi.com/stub_status'
+    restart: unless-stopped
+    expose:
+      - 9113
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
+
