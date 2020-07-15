@@ -1,11 +1,12 @@
 route:
-    receiver: 'slack'
+    receiver: 'email_receiver'
 
 receivers:
-    - name: 'slack'
-      slack_configs:
+    - name: 'email_receiver'
+      email_configs:
           - send_resolved: true
-            text: "{{ .CommonAnnotations.description }}"
-            username: 'Prometheus'
-            channel: '#<channel-name>'
-            api_url: 'https://hooks.slack.com/services/<webhook-id>'
+            to: alerts@mobeigi.com
+            from: Observability <obs@mobeigi.com>
+            smarthost: email-smtp.ap-southeast-2.amazonaws.com:587
+            auth_username: username
+            auth_password: password
